@@ -1,11 +1,13 @@
 pipeline {
     
-        
+        agent none
     
     stages {
         stage('Build and Push backend Docker Image in parallel') {
             parallel {
                 stage('build frontend') {
+                    
+                    agent none
                   
                     steps {
                         script {
