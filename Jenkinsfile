@@ -12,11 +12,11 @@ pipeline {
                     steps {
                         script {
 
-                            def repository = "099242274141.dkr.ecr.eu-west-1.amazonaws.com/frontend"
+                            def repository = "517056076755.dkr.ecr.us-east-1.amazonaws.com/ofekproj"
                                 def tag = "${env.BUILD_ID}"
                                 def dockerfile = "Dockerfile-frontend"
                                 sh """
-                                aws ecr get-login-password --region eu-west-1 \
+                                aws ecr get-login-password --region us-east-1 \
                                 | docker login --username AWS --password-stdin ${repository}
 
                             docker build -t ${repository}:${tag} -f ${dockerfile} public
@@ -32,11 +32,11 @@ pipeline {
                     steps {
                         script {
 
-                            def repository = "099242274141.dkr.ecr.eu-west-1.amazonaws.com/backend"
+                            def repository = "517056076755.dkr.ecr.us-east-1.amazonaws.com/ofekproj"
                                 def tag = "${env.BUILD_ID}"
                                 def dockerfile = "Dockerfile-backend"
                                 sh """
-                                aws ecr get-login-password --region eu-west-1 \
+                                aws ecr get-login-password --region us-east-1 \
                                 | docker login --username AWS --password-stdin ${repository}
 
                             docker build -t ${repository}:${tag} -f ${dockerfile} .
