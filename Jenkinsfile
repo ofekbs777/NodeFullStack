@@ -26,7 +26,9 @@ pipeline {
                     }
                 }
                 stage('build backend') {
-
+                    
+                    agent none
+                    
                     steps {
                         script {
 
@@ -46,7 +48,8 @@ pipeline {
             } 
         }
         stage('Deploy to kubernetes') {
-          
+            
+          agent none
             steps {
                 script {
                     sh """
