@@ -1,13 +1,13 @@
 pipeline {
-    agent {
+    agent any {
         
     }
     stages {
         stage('Build and Push backend Docker Image in parallel') {
             parallel {
                 stage('build frontend') {
-                    agent {
-                        label "mashebali"
+                    agent any {
+                        
                     }
                     steps {
                         script {
@@ -26,8 +26,8 @@ pipeline {
                     }
                 }
                 stage('build backend') {
-                    agent {
-                        label "mashebali"
+                    agent any {
+                        
                     }
                     steps {
                         script {
@@ -48,7 +48,7 @@ pipeline {
             } 
         }
         stage('Deploy to kubernetes') {
-            agent {
+            agent any {
                 
             }
             steps {
